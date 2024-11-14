@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    /* General Styles */
+    /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #4caf50;
+  color: white;
+  position: relative;
+}
+
+.navbar img {
+  width: 180px;
+  height: 100px;
+}
+
+.navbar button {
+  display: none;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar ul li {
+  list-style-type: none;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  font-size: 21px;
+  color: black;
+  transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  color: #4caf50;
+}
+
+/* Hamburger Menu (Button) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 25px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hamburger div {
+  height: 4px;
+  background-color: white;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Home Section */
+#home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 40px;
+  background-color: #fff;
+  color: black;
+}
+
+#home .home-text {
+  max-width: 50%;
+}
+
+#home h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+#home h2 {
+  font-size: 36px;
+  color: #4caf50;
+  margin-top: 10px;
+}
+
+#home button {
+  padding: 12px 24px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#home button:hover {
+  background-color: red;
+  text-decoration: none;
+}
+
+.i {
+  width: 800px;
+  height: 500px;
+  border-radius: 10px;
+}
+
+/* About, Skills, Contact Sections */
+#about, #skills, #contact {
+  padding: 80px 40px;
+  background-color: #fff;
+  text-align: center;
+}
+
+/* Skills Section */
+#skills {
+  padding: 80px 40px;
+  background-color: #fff;
+  text-align: center;
+}
+
+#skills h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.skill {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.skill:hover {
+  transform: translateY(-10px);
+}
+
+.skill h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.skill-bar {
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.skill-level {
+  height: 100%;
+  background-color: #4caf50;
+  text-align: center;
+  line-height: 12px;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: width 0.5s ease;
+}
+
+/* About Me Section */
+#about {
+  padding: 80px 40px;
+  background-color: #fff;
+  text-align: center;
+}
+
+#about .section-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+#about p {
+  font-size: 20px;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+#about .table {
+  margin-top: 40px;
+  text-align: left;
+  font-size: 18px;
+  color: #444;
+  width: 100%;
+  max-width: 650px;
+  margin: 40px auto;
+  border-collapse: collapse;
+}
+
+#about .table td {
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+#about .table a {
+  color: #4caf50;
+  text-decoration: none;
+}
+
+#about .table a:hover {
+  text-decoration: underline;
+}
+
+/* Contact Section */
+#contact {
+  background-color: white;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+#contact h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+.contact-form button {
+  padding: 12px 24px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #388e3c;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  /* Navbar */
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .navbar ul li a {
+    font-size: 18px;
+    color: white;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar.active ul {
+    display: flex;
+  }
+
+  /* Home Section */
+  #home {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  #home h1 {
+    font-size: 36px;
+  }
+
+  #home h2 {
+    font-size: 28px;
+  }
+
+  /* About Section */
+  #about .section-title {
+    font-size: 28px;
+  }
+
+  #about p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  #about .table {
+    font-size: 16px;
+  }
+
+  #about .table td {
+    padding: 8px 15px;
+  }
+
+  /* Skills Section */
+  #skills h1 {
+    font-size: 32px;
+  }
+
+  .skills-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .skill {
+    padding: 20px;
+  }
+
+  /* Contact Section */
+  #contact h2 {
+    font-size: 28px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+  }
+
+  .contact-form button {
+    font-size: 16px;
+  }
+}
+/* Projects Section */
+#projects {
+  padding: 80px 40px;
+  background-color: #fff;
+  text-align: center;
+}
+
+#projects h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.project {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project:hover {
+  transform: translateY(-10px);
+}
+
+.project img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.project h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.project p {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.project a {
+  font-size: 18px;
+  color: #4caf50;
+  text-decoration: none;
+}
+
+.project a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <img src="bb2.png" alt="Logo">
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <ul id="nav_items">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Project</a></li>
+      
+
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Home Section -->
+  <section id="home">
+    <div class="home-text">
+      <h1>Hello, I'm Bhagyashri Nagose</h1>
+      <h2>Fullstack Developer</h2>
+      <button><a href="resume.pdf" download>Download Resume</a></button>
+    </div>
+    <img class="i" src="img9.png" alt="Profile Picture" >
+  </section>
+
+  <!-- About Me Section -->
+<section id="about">
+  <h1 class="section-title">About Me</h1>
+  <p>Hello! I'm Bhagyashri Nagose, a Full-stack Web Developer with a passion for creating interactive web applications. I'm constantly learning and enhancing my skills to create amazing products!</p>
+
+  <table class="table">
+    <tr>
+      <td>Birthday: 17 Nov 1997</td>
+      <td>Age: 26 years</td>
+    </tr>
+    <tr>
+      <td>City: Mumbai</td>
+      <td>Email: bhagyanagose@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Phone: +91 1234567890</td>
+      <td>LinkedIn: <a href="https://www.linkedin.com/in/bhagyashri" target="_blank">linkedin.com/in/bhagya</a></td>
+    </tr>
+  </table>
+</section>
+
+
+  <!-- Skills Section -->
+<section id="skills">
+  <h1>My Skills</h1>
+  <div class="skills-container">
+    <div class="skill">
+      <h3>HTML & CSS</h3>
+      <div class="skill-bar">
+        <div class="skill-level" style="width: 90%;">90%</div>
+      </div>
+    </div>
+    <div class="skill">
+      <h3>JavaScript</h3>
+      <div class="skill-bar">
+        <div class="skill-level" style="width: 85%;">85%</div>
+      </div>
+    </div>
+    <div class="skill">
+      <h3>React.js</h3>
+      <div class="skill-bar">
+        <div class="skill-level" style="width: 80%;">80%</div>
+      </div>
+    </div>
+    <div class="skill">
+      <h3>Node.js</h3>
+      <div class="skill-bar">
+        <div class="skill-level" style="width: 75%;">75%</div>
+      </div>
+    </div>
+    <div class="skill">
+      <h3>Python</h3>
+      <div class="skill-bar">
+        <div class="skill-level" style="width: 70%;">70%</div>
+      </div>
+    </div>
+    <div class="skill">
+      <h3>SQL</h3>
+      <div class="skill-bar">
+        <div class="skill-level" style="width: 65%;">65%</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Projects Section -->
+<section id="projects">
+  <h1>My Projects</h1>
+  <div class="projects-container">
+    <div class="project">
+      <img src="calu.png" alt="Project 1">
+      <h3>Calculator</h3>
+      <p>A short description of what the project is about, the technology used, and its purpose.</p>
+      <a href="https://github.com/your-username/project1" target="_blank">View Project</a>
+    </div>
+    <div class="project">
+      <img src="weth.png" alt="Project 2">
+      <h3>Weather Application</h3>
+      <p>A short description of what the project is about, the technology used, and its purpose.</p>
+      <a href="https://github.com/your-username/project2" target="_blank">View Project</a>
+    </div>
+    <div class="project">
+      <img src="news.png" alt="Project 3">
+      <h3>News App</h3>
+      <p>A short description of what the project is about, the technology used, and its purpose.</p>
+      <a href="https://github.com/your-username/project3" target="_blank">View Project</a>
+    </div>
+    <div class="project">
+      <img src="sch.jpg" alt="Project 3">
+      <h3>Canvas</h3>
+      <p>A short description of what the project is about, the technology used, and its purpose.</p>
+      <a href="https://github.com/your-username/project3" target="_blank">View Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required><br>
+    <input type="email" placeholder="Your Email" required><br>
+    <textarea placeholder="Your Message" required></textarea><br>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+
+
+  <!-- Footer Section -->
+  <footer>
+    <p>Connect with me:</p>
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <p><b>© </b>2024 Finalsite - all rights reserved
+
+  Privacy PolicyPrivacy Request Form(opens in new window/tab)Sitemap</p>
+  </footer>
+
+  <script>
+    // Function to toggle the navbar menu on small screens
+    function toggleMenu() {
+      const navItems = document.getElementById('nav_items');
+      const navbar = document.querySelector('.navbar');
+      navbar.classList.toggle('active');  // Toggle active class to show/hide the menu
+    }
+  </script>
+
+</body>
+</html>

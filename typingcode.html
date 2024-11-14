@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Animation</title>
+    <style type="text/css">
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:whitesmoke;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.container {
+    border-right: 2px solid white;
+    padding-right: 10px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: white; }
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1 id="typing-text"></h1>
+    </div>
+    
+</body>
+<script src="script.js">
+    const text = "hello";
+const typingTextElement = document.getElementById("typing-text");
+let index = 0;
+
+function type() {
+    if (index < text.length) {
+        typingTextElement.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 300); // Adjust the speed here (in milliseconds)
+    }
+}
+
+type();
+
+    
+</script>
+</html>
